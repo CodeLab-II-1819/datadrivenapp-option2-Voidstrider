@@ -7,18 +7,17 @@
 
 
 #pragma once
-
-
 #include "ofMain.h"
 #include "ofxTwitter.h"
-
+#include "ofxGui.h"
 
 class ofApp: public ofBaseApp
 {
 public:
     //declare app functions
     void setup();
-    void draw();
+	void draw();
+	void keyPressed(int key);
     void onStatus(const ofxTwitter::Status& status);
     void onError(const ofxTwitter::Error& error);
     void onException(const std::exception& exception);
@@ -31,4 +30,6 @@ public:
     int count = 0;
     int countMissed = 0;
 
+	ofxPanel controller;
+	ofxFloatSlider xPos;
 };

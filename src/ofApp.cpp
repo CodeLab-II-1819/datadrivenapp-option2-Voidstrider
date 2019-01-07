@@ -7,10 +7,20 @@
 
 
 #include "ofApp.h"
-
+#include <string>
+#include <sstream>
+#include <vector>
+std::stringstream dataStream;
 //initial app setup
 void ofApp::setup()
 {
+	void mousePressed(int x, int y, int button);
+
+	ofImage btnImg;
+	ofRectangle btn1, btn2;
+	
+	btn1.set(700, 0, 20, 20);
+	btn2.set(700, 460, 20, 20);
     //lower app frameRate
     ofSetFrameRate(30);
 
@@ -59,8 +69,11 @@ void ofApp::setup()
 */
 void ofApp::draw()
 {
+	ofSetColor(255);
+	FillRect(btn1);
+	
     //sets background to black
-    ofBackground(0);
+    ofBackground(75, 150, 255);
 
     //counts number of tweets
     int total = count + countMissed;
@@ -70,13 +83,15 @@ void ofApp::draw()
     ss << "  Received: " << count << std::endl;
     ss << "    Missed: " << countMissed << std::endl;
     ss << "     Total: " << total << std::endl;
-    
+	
     /*
      Draw string stream info to the GUI window at x: 14 / y: 14
      Bitmap string is default text with limited customisation optimisations
      Load in fonts to enhance design
     */
     ofDrawBitmapString(ss.str(), 14, 14);
+    ofDrawBitmapString(dataStream.str(), 14, 50);
+
 }
 
 //This function is called everytime the a new tweet is recieved
@@ -89,6 +104,10 @@ void ofApp::onStatus(const ofxTwitter::Status& status)
     std::cout << "User: " << status.user()->name() << endl;
     std::cout << "Tweet: " << status.text() << endl;
     std::cout << "\n -----------------------------\n" << endl;
+	
+	dataStream << "User: " << status.user()->name() << std::endl;
+	dataStream << "Tweet: " << status.text() << std::endl;
+	dataStream << "\n -----------------------------\n" << std::endl;
     
     /*
      To see what other information you can display you should explore
@@ -113,4 +132,10 @@ void ofApp::onException(const std::exception& notice)
 void ofApp::onMessage(const ofJson& json)
 {
 	// This is the raw message json and is ignored here.
+}
+
+void ofApp::keyPressed(int key) {
+	switch (key) {
+
+	}
 }
