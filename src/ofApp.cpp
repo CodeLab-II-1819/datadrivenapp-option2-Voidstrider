@@ -23,10 +23,10 @@ void ofApp::setup()
 	downArrow.load("downArrow.png");
 	trendingButton.load("trendingButton.png");
 	trumpButton.load("trumpButton.png");
-	btn1.set(700, 0, 20, 20);
-	btn2.set(700, 460, 20, 20);
-	btn3.set(600, 400, 75, 25);
-	btn4.set(600, 430, 75, 25);
+	btn1.set(700, 0, 20, 20); //UP arrow
+	btn2.set(700, 460, 20, 20); //DOWN arrow
+	btn3.set(600, 400, 75, 25); //TRENDING
+	btn4.set(600, 430, 75, 25); //TRUMP
 
     //lower app frameRate
     ofSetFrameRate(30);
@@ -150,6 +150,9 @@ void ofApp::onStatus(const ofxTwitter::Status& status)
 	dataStream << "\n -----------------------------\n" << std::endl;
 	string tempTweet = dataStream.str();
 	wrappedTweets = wrapString(tempTweet, 350);
+	if (count > 14) {
+		client.stop();
+	}
     /*
      To see what other information you can display you should explore
      the .h files included in:
@@ -186,5 +189,17 @@ void ofApp::mousePressed(int x, int y, int button) {
 	}
 	if (btn2.inside(x,y)) {
 		yPos = yPos + 15;
+	}
+	if (btn3.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("#trending");
+	}
+	if (btn4.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Donald Trump or @realDonaldTrump");
 	}
 }
