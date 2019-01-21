@@ -11,16 +11,23 @@
 #include <sstream>
 #include <vector>
 std::stringstream dataStream;
+string wrappedTweets;
 //initial app setup
 void ofApp::setup()
 {
-	void mousePressed(int x, int y, int button);
-
-	ofImage btnImg;
-	ofRectangle btn1, btn2;
-	
+	//loads up the images to be drawn
+	myFont.load("font.ttf", 10,true, true);
+	myFont.setLineHeight(20.0f);
+	logo.load("twitterLogo.png");
+	upArrow.load("upArrow.png");
+	downArrow.load("downArrow.png");
+	trendingButton.load("trendingButton.png");
+	trumpButton.load("trumpButton.png");
 	btn1.set(700, 0, 20, 20);
 	btn2.set(700, 460, 20, 20);
+	btn3.set(600, 400, 75, 25);
+	btn4.set(600, 430, 75, 25);
+
     //lower app frameRate
     ofSetFrameRate(30);
 
@@ -69,11 +76,19 @@ void ofApp::setup()
 */
 void ofApp::draw()
 {
-	ofSetColor(255);
-	FillRect(btn1);
 	
-    //sets background to black
+	count++;
+	
+	//sets background to blue
+	ofSetColor(255);
+	
+	//Draws images and buttons
     ofBackground(75, 150, 255);
+	logo.draw(350, 10, 50, 50);
+	upArrow.draw(btn1);
+	downArrow.draw(btn2);
+	trendingButton.draw(btn3);
+	trumpButton.draw(btn4);
 
     //counts number of tweets
     int total = count + countMissed;
@@ -90,8 +105,33 @@ void ofApp::draw()
      Load in fonts to enhance design
     */
     ofDrawBitmapString(ss.str(), 14, 14);
-    ofDrawBitmapString(dataStream.str(), 14, 50);
+	ofDrawBitmapString(wrappedTweets, 14, yPos);
 
+}
+
+string ofApp::wrapString(string text, int width) {
+	string typeWrapped = "";
+	string tempString = "";
+	vector <string> words = ofSplitString(text, " ");
+
+	for (int i = 0; i < words.size(); i++) {
+		string wrd = words[i];
+
+		if (i > 0) {
+			tempString += " ";
+		}
+		tempString += wrd;
+		int stringwidth = myFont.stringWidth(tempString);
+		if (stringwidth >= width) {
+			typeWrapped += "\n";
+			tempString = wrd;
+		}
+		else if (i > 0){
+			typeWrapped += " ";
+		}
+		typeWrapped += wrd;
+	}
+	return typeWrapped;
 }
 
 //This function is called everytime the a new tweet is recieved
@@ -108,7 +148,8 @@ void ofApp::onStatus(const ofxTwitter::Status& status)
 	dataStream << "User: " << status.user()->name() << std::endl;
 	dataStream << "Tweet: " << status.text() << std::endl;
 	dataStream << "\n -----------------------------\n" << std::endl;
-    
+	string tempTweet = dataStream.str();
+	wrappedTweets = wrapString(tempTweet, 350);
     /*
      To see what other information you can display you should explore
      the .h files included in:
@@ -137,5 +178,13 @@ void ofApp::onMessage(const ofJson& json)
 void ofApp::keyPressed(int key) {
 	switch (key) {
 
+	}
+}
+void ofApp::mousePressed(int x, int y, int button) {
+	if (btn1.inside(x,y)) {
+		yPos = yPos - 15;
+	}
+	if (btn2.inside(x,y)) {
+		yPos = yPos + 15;
 	}
 }
