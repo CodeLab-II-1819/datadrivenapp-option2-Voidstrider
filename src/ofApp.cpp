@@ -34,15 +34,15 @@ void ofApp::setup()
 	btn1.set(700, 0, 20, 20); //UP arrow -
 	btn2.set(700, 460, 20, 20); //DOWN arrow -
 	btn3.set(600, 100, 75, 25); //TRENDING -
-	btn4.set(600, 125, 75, 25); //TRUMP -
-	btn5.set(600, 150, 75, 25); //MONEY -
-	btn6.set(600, 175, 75, 25); //BREXIT -
-	btn7.set(600, 200, 75, 25); //POLITICS -
-	btn8.set(600, 225, 75, 25); //SOCIAL - 
-	btn9.set(600, 250, 75, 25); //CLIMATE -
-	btn10.set(600, 275, 75, 25); //WORLD EVENTS -
-	btn11.set(600, 300, 75, 25); //REVIEW -
-	btn12.set(600, 325, 75, 25); //AMERICA -
+	btn4.set(600, 126, 75, 25); //TRUMP - 1
+	btn5.set(600, 152, 75, 25); //MONEY - 2
+	btn6.set(600, 178, 75, 25); //BREXIT - 3
+	btn7.set(600, 204, 75, 25); //POLITICS - 4
+	btn8.set(600, 230, 75, 25); //SOCIAL - 5
+	btn9.set(600, 256, 75, 25); //CLIMATE - 6
+	btn10.set(600, 282, 75, 25); //WORLD EVENTS - 7
+	btn11.set(600, 308, 75, 25); //REVIEW - 8
+	btn12.set(600, 334, 75, 25); //AMERICA - 9
 
     //lower app frameRate
     ofSetFrameRate(30);
