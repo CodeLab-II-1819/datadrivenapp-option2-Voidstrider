@@ -38,11 +38,17 @@ public:
 	ofxFloatSlider xPos;
 
 	ofImage logo;
-	ofImage trendingButton;
-	ofImage trumpButton;
 	ofImage upArrow;
 	ofImage downArrow;
-	ofRectangle btn1, btn2, btn3, btn4;
-	ofTrueTypeFont myFont;
-
+	ofImage moneyButton;
+	ofImage natureButton;
+	ofImage brexitButton;
+	ofImage trendingButton;
+	ofImage trumpButton;
+	ofRectangle btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12; 
+	ofTrueTypeFont myFont;			
+	//bt1: Up Arrow, btn2: Down Arrow, btn3: Trending Button, btn4: Trump Button, 
+	//btn5: Money Button, btn6: Brexit button, 
+	//btn7: Politics Button, btn8: Social Button, 
+	//btn9: Climate Button, btn10: World Affairs Button, btn11: Review, btn12: America.
 };

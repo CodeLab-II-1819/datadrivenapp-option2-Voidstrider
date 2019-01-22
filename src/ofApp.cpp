@@ -27,6 +27,14 @@ void ofApp::setup()
 	btn2.set(700, 460, 20, 20); //DOWN arrow
 	btn3.set(600, 400, 75, 25); //TRENDING
 	btn4.set(600, 430, 75, 25); //TRUMP
+	btn5.set(600, 450, 75, 25); //MONEY
+	btn6.set(600, 470, 75, 25); //BREXIT
+	btn7.set(600, 490, 75, 25); //BREXIT
+	btn8.set(600, 510, 75, 25); //SOCIAL
+	btn9.set(600, 530, 75, 25); //CLIMATE
+	btn10.set(600, 560, 75, 25); //WORLD AFFAIRS
+	btn11.set(600, 590, 75, 25); //REVIEW
+	btn12.set(600, 610, 75, 25); //AMERICA
 
     //lower app frameRate
     ofSetFrameRate(30);
@@ -89,6 +97,7 @@ void ofApp::draw()
 	downArrow.draw(btn2);
 	trendingButton.draw(btn3);
 	trumpButton.draw(btn4);
+	natureButton.draw(btn5);
 
     //counts number of tweets
     int total = count + countMissed;
