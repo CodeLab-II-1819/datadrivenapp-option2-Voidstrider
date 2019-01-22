@@ -23,18 +23,26 @@ void ofApp::setup()
 	downArrow.load("downArrow.png");
 	trendingButton.load("trendingButton.png");
 	trumpButton.load("trumpButton.png");
-	btn1.set(700, 0, 20, 20); //UP arrow
-	btn2.set(700, 460, 20, 20); //DOWN arrow
-	btn3.set(600, 400, 75, 25); //TRENDING
-	btn4.set(600, 430, 75, 25); //TRUMP
-	btn5.set(600, 450, 75, 25); //MONEY
-	btn6.set(600, 470, 75, 25); //BREXIT
-	btn7.set(600, 490, 75, 25); //BREXIT
-	btn8.set(600, 510, 75, 25); //SOCIAL
-	btn9.set(600, 530, 75, 25); //CLIMATE
-	btn10.set(600, 560, 75, 25); //WORLD AFFAIRS
-	btn11.set(600, 590, 75, 25); //REVIEW
-	btn12.set(600, 610, 75, 25); //AMERICA
+	moneyButton.load("moneyButton.png");
+	brexitButton.load("brexitButton.png");
+	politicsButton.load("politicsButton.png");
+	socialButton.load("socialbutton.png");
+	climateButton.load("climateButton.png");
+	worldEventsButton.load("worldEventsButton.png");
+	reviewButton.load("reviewButton.png");
+	americaButton.load("americaButton.png");
+	btn1.set(700, 0, 20, 20); //UP arrow -
+	btn2.set(700, 460, 20, 20); //DOWN arrow -
+	btn3.set(600, 400, 75, 25); //TRENDING -
+	btn4.set(600, 430, 75, 25); //TRUMP -
+	btn5.set(600, 450, 75, 25); //MONEY -
+	btn6.set(600, 470, 75, 25); //BREXIT -
+	btn7.set(600, 490, 75, 25); //POLITICS -
+	btn8.set(600, 510, 75, 25); //SOCIAL - 
+	btn9.set(600, 530, 75, 25); //CLIMATE -
+	btn10.set(600, 560, 75, 25); //WORLD EVENTS -
+	btn11.set(600, 590, 75, 25); //REVIEW -
+	btn12.set(600, 610, 75, 25); //AMERICA -
 
     //lower app frameRate
     ofSetFrameRate(30);
@@ -98,7 +106,11 @@ void ofApp::draw()
 	trendingButton.draw(btn3);
 	trumpButton.draw(btn4);
 	natureButton.draw(btn5);
-
+	moneyButton.draw(btn6);
+	brexitButton.draw(btn7);
+	politicsButton.draw(btn8);
+	socialButton.draw(btn9);
+	socialButton.draw(btn9);
     //counts number of tweets
     int total = count + countMissed;
 
@@ -203,12 +215,60 @@ void ofApp::mousePressed(int x, int y, int button) {
 		count = 0;
 		yPos = 50;
 		dataStream.str("");
-		client.search("#trending");
+		client.search("#trending or #Trending");
 	}
 	if (btn4.inside(x,y)) {
 		count = 0;
 		yPos = 50;
 		dataStream.str("");
 		client.search("Donald Trump or @realDonaldTrump");
+	}
+	if (btn5.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Money or money");
+	}
+	if (btn6.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Brexit or brexit");
+	}
+	if (btn7.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Politics or politics");
+	}
+	if (btn8.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Social or social");
+	}
+	if (btn9.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Climate or climate");
+	}
+	if (btn10.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("World events or world events or World Events or world Events");
+	}
+	if (btn11.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("Review or review");
+	}
+	if (btn12.inside(x,y)) {
+		count = 0;
+		yPos = 50;
+		dataStream.str("");
+		client.search("America or america");
 	}
 }
