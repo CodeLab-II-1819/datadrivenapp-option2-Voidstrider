@@ -33,16 +33,16 @@ void ofApp::setup()
 	americaButton.load("americaButton.png");
 	btn1.set(700, 0, 20, 20); //UP arrow -
 	btn2.set(700, 460, 20, 20); //DOWN arrow -
-	btn3.set(600, 400, 75, 25); //TRENDING -
-	btn4.set(600, 430, 75, 25); //TRUMP -
-	btn5.set(600, 450, 75, 25); //MONEY -
-	btn6.set(600, 470, 75, 25); //BREXIT -
-	btn7.set(600, 490, 75, 25); //POLITICS -
-	btn8.set(600, 510, 75, 25); //SOCIAL - 
-	btn9.set(600, 530, 75, 25); //CLIMATE -
-	btn10.set(600, 560, 75, 25); //WORLD EVENTS -
-	btn11.set(600, 590, 75, 25); //REVIEW -
-	btn12.set(600, 610, 75, 25); //AMERICA -
+	btn3.set(600, 100, 75, 25); //TRENDING -
+	btn4.set(600, 125, 75, 25); //TRUMP -
+	btn5.set(600, 150, 75, 25); //MONEY -
+	btn6.set(600, 175, 75, 25); //BREXIT -
+	btn7.set(600, 200, 75, 25); //POLITICS -
+	btn8.set(600, 225, 75, 25); //SOCIAL - 
+	btn9.set(600, 250, 75, 25); //CLIMATE -
+	btn10.set(600, 275, 75, 25); //WORLD EVENTS -
+	btn11.set(600, 300, 75, 25); //REVIEW -
+	btn12.set(600, 325, 75, 25); //AMERICA -
 
     //lower app frameRate
     ofSetFrameRate(30);
@@ -105,12 +105,14 @@ void ofApp::draw()
 	downArrow.draw(btn2);
 	trendingButton.draw(btn3);
 	trumpButton.draw(btn4);
-	natureButton.draw(btn5);
-	moneyButton.draw(btn6);
-	brexitButton.draw(btn7);
-	politicsButton.draw(btn8);
-	socialButton.draw(btn9);
-	socialButton.draw(btn9);
+	moneyButton.draw(btn5);
+	brexitButton.draw(btn6);
+	politicsButton.draw(btn7);
+	socialButton.draw(btn8);
+	climateButton.draw(btn9);
+	worldEventsButton.draw(btn10);
+	reviewButton.draw(btn11);
+	americaButton.draw(btn12);
     //counts number of tweets
     int total = count + countMissed;
 
