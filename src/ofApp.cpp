@@ -11,12 +11,12 @@
 #include <sstream>
 #include <vector>
 std::stringstream dataStream;
-string wrappedTweets;
+string wrappedTweets; //Creates a variable for the text wrapping.
 //initial app setup
 void ofApp::setup()
 {
-	//loads up the images to be drawn
-	myFont.load("font.ttf", 10,true, true);
+	//loads up the images and fonts to be drawn
+	myFont.load("font.ttf", 10,true, true); 
 	myFont.setLineHeight(20.0f);
 	logo.load("twitterLogo.png");
 	upArrow.load("upArrow.png");
@@ -137,6 +137,7 @@ string ofApp::wrapString(string text, int width) {
 	string tempString = "";
 	vector <string> words = ofSplitString(text, " ");
 
+	//For loop counts the length of 
 	for (int i = 0; i < words.size(); i++) {
 		string wrd = words[i];
 
